@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<SplitPane dividerPositions="0.16" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.screens.customer.CustomerController">
+   <items>
+      <GridPane alignment="CENTER" vgap="10.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="621.0" minHeight="10.0" prefHeight="377.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="279.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <ScrollPane>
+               <content>
+                  <VBox fx:id="sidePanelVBox" alignment="CENTER" spacing="30.0">
+                     <children>
+                        <VBox alignment="CENTER" maxHeight="42.0" maxWidth="110.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="110.0">
+                           <children>
+                              <Label text="Current Yaz" />
+                              <TextField fx:id="currYazField" alignment="CENTER" editable="false" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="42.0" maxWidth="110.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="110.0">
+                           <children>
+                              <Label text="Balance" />
+                              <TextField fx:id="balanceField" alignment="CENTER" editable="false" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="42.0" maxWidth="110.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="110.0">
+                           <children>
+                              <Label text="Open Payments" />
+                              <TextField fx:id="openPaymentsField" alignment="CENTER" editable="false" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="42.0" maxWidth="110.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="110.0">
+                           <children>
+                              <Label text="Loans Requested" />
+                              <TextField fx:id="loansRequestedField" alignment="CENTER" editable="false" />
+                           </children>
+                        </VBox>
+                        <Button fx:id="loadFileButton" minHeight="50.0" minWidth="85.0" mnemonicParsing="false" onAction="#loadFileButtonAction" prefHeight="50.0" prefWidth="85.0" text="Upload" />
+                        <Label fx:id="uploadErrorLabel" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" top="10.0" />
+               </GridPane.margin>
+            </ScrollPane>
+            <ImageView fx:id="animationImage" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <ScrollPane fitToHeight="true" fitToWidth="true">
+         <content>
+            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="626.0" prefWidth="525.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab text="Information">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <SplitPane dividerPositions="0.5" layoutX="15.0" layoutY="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <items>
+                                    <VBox alignment="CENTER" spacing="10.0">
+                                       <children>
+                                          <VBox alignment="CENTER" spacing="5.0">
+                                             <children>
+                                                <Label fx:id="requestedLoansLabel" text="Requested Loans" />
+                                                <TableView fx:id="loanerLoansTable" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" spacing="5.0">
+                                             <children>
+                                                <Label fx:id="investedLoansLabel" text="Invested Loans" />
+                                                <TableView fx:id="lenderLoansTable" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" spacing="10.0">
+                                       <children>
+                                          <VBox alignment="CENTER" spacing="5.0">
+                                             <children>
+                                                <Label fx:id="transactionsLabel" text="Transactions" />
+                                                <TableView fx:id="transactionsTable" />
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER">
+                                             <children>
+                                                <Label text="Amount" />
+                                                <TextField fx:id="infAmountField" maxWidth="100.0" />
+                                             </children>
+                                          </VBox>
+                                          <HBox alignment="CENTER" spacing="30.0">
+                                             <children>
+                                                <Button fx:id="chargeButton" minWidth="80.0" mnemonicParsing="false" onAction="#chargeButtonAction" text="Deposit" />
+                                                <Button fx:id="withdrawButton" minWidth="80.0" mnemonicParsing="false" onAction="#withdrawButtonAction" prefHeight="25.0" text="Withdraw" />
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="infErrorLabel" />
+                                       </children>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Loan Integration">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <top>
+                                    <AnchorPane BorderPane.alignment="CENTER">
+                                       <children>
+                                          <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="68.0" prefWidth="813.0" spacing="10.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="110.0">
+                                                         <children>
+                                                            <Label alignment="CENTER" text="Amount to Invest" />
+                                                            <TextField fx:id="amountField" alignment="CENTER" />
+                                                         </children>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="110.0">
+                                                         <children>
+                                                            <Label alignment="CENTER" text="Minimum Interest" />
+                                                            <TextField fx:id="minInterestField" alignment="CENTER" />
+                                                         </children>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="110.0">
+                                                         <children>
+                                                            <Label alignment="CENTER" text="Minimum Yaz" />
+                                                            <TextField fx:id="minYazField" alignment="CENTER" />
+                                                         </children>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="110.0">
+                                                         <children>
+                                                            <Label alignment="CENTER" text="Max Loaner Loans" />
+                                                            <TextField fx:id="maxLoanerLoansField" alignment="CENTER" />
+                                                         </children>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="110.0">
+                                                         <children>
+                                                            <Label alignment="CENTER" prefWidth="120.0" text="Max Ownership" />
+                                                            <TextField fx:id="maxOwnershipField" alignment="CENTER" />
+                                                         </children>
+                                                         <opaqueInsets>
+                                                            <Insets />
+                                                         </opaqueInsets>
+                                                      </VBox>
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </HBox>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <VBox alignment="CENTER" layoutX="30.0" layoutY="-1.0" prefHeight="128.0" prefWidth="600.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <VBox alignment="CENTER" spacing="10.0">
+                                                               <children>
+                                                                  <Label text="Categories" />
+                                                                  <CheckComboBox fx:id="categoriesComboBox" minHeight="25.0" minWidth="282.0" prefHeight="25.0" />
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER" spacing="10.0">
+                                                               <VBox.margin>
+                                                                  <Insets top="35.0" />
+                                                               </VBox.margin>
+                                                               <children>
+                                                                  <Button fx:id="searchLoansButton" maxHeight="25.0" maxWidth="103.0" mnemonicParsing="false" onAction="#searchLoansButtonAction" prefHeight="25.0" prefWidth="103.0" text="Search Loans" />
+                                                                  <ProgressBar fx:id="searchLoansProgressBar" prefWidth="200.0" progress="0.0" />
+                                                                  <Label fx:id="progressBarStatusLabel" alignment="CENTER" />
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </top>
+                                 <center>
+                                    <ScrollPane fitToHeight="true" fitToWidth="true">
+                                       <content>
+                                          <GridPane alignment="CENTER">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="283.0" prefWidth="283.0" />
+                                                <ColumnConstraints hgrow="NEVER" maxWidth="123.0" minWidth="73.0" prefWidth="107.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="266.0" prefWidth="282.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <VBox alignment="CENTER" spacing="20.0" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <Button fx:id="tablesRightButton" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" onAction="#tablesRightButtonAction" prefHeight="32.0" prefWidth="32.0" />
+                                                      <Button fx:id="tablesLeftButton" maxHeight="32.0" maxWidth="32.0" minHeight="32.0" minWidth="32.0" mnemonicParsing="false" onAction="#tablesLeftButtonAction" prefHeight="32.0" prefWidth="32.0" />
+                                                      <Button fx:id="investButton" mnemonicParsing="false" onAction="#investButtonAction" prefHeight="25.0" prefWidth="80.0" text="Invest" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER">
+                                                   <children>
+                                                      <Label fx:id="loansFoundLabel" text="Loans Found" />
+                                                      <TableView fx:id="loansFoundTable">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" />
+                                                         </VBox.margin>
+                                                      </TableView>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" GridPane.columnIndex="2">
+                                                   <children>
+                                                      <Label fx:id="loansChosenLabel" text="Loans Chosen" />
+                                                      <TableView fx:id="loansChosenTable">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" right="10.0" />
+                                                         </VBox.margin>
+                                                      </TableView>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Loan Request">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <VBox spacing="10.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <HBox alignment="CENTER" spacing="10.0">
+                                             <children>
+                                                <VBox alignment="CENTER">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Name" />
+                                                      <TextField fx:id="nameField" alignment="CENTER" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </VBox>
+                                                <VBox alignment="CENTER">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Category" />
+                                                      <TextField fx:id="categoryField" alignment="CENTER" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </VBox>
+                                                <VBox alignment="CENTER">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Amount" />
+                                                      <TextField fx:id="requestAmountField" alignment="CENTER" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </VBox>
+                                             </children>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </HBox>
+                                          <HBox alignment="CENTER" spacing="10.0">
+                                             <children>
+                                                <VBox alignment="CENTER">
+                                                   <children>
+                                                      <Label alignment="CENTER" text="Time" />
+                                                      <TextField fx:id="timeField" alignment="CENTER" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </VBox>
+                                                <VBox alignment="CENTER">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefWidth="120.0" text="Pay Every" />
+                                                      <TextField fx:id="payEveryField" alignment="CENTER" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </VBox>
+                                                <VBox alignment="CENTER">
+                                                   <children>
+                                                      <Label alignment="CENTER" prefWidth="120.0" text="Interest" />
+                                                      <TextField fx:id="interestField" alignment="CENTER" />
+                                                   </children>
+                                                   <opaqueInsets>
+                                                      <Insets />
+                                                   </opaqueInsets>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <AnchorPane>
+                                             <children>
+                                                <VBox alignment="CENTER" layoutX="30.0" layoutY="-1.0" prefHeight="128.0" prefWidth="600.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" spacing="10.0">
+                                                         <VBox.margin>
+                                                            <Insets top="35.0" />
+                                                         </VBox.margin>
+                                                         <children>
+                                                            <Button fx:id="requestLoanButton" maxHeight="25.0" maxWidth="103.0" mnemonicParsing="false" onAction="#requestLoanButtonAction" prefHeight="25.0" prefWidth="103.0" text="Request Loan" />
+                                                            <ProgressBar fx:id="requestLoanProgress" prefWidth="200.0" progress="0.0" />
+                                                            <Label fx:id="loanProgressStatusLabel" alignment="CENTER" />
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                       <BorderPane.margin>
+                                          <Insets top="20.0" />
+                                       </BorderPane.margin>
+                                    </VBox>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab text="Payment">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+                                 <left>
+                                    <VBox alignment="TOP_CENTER" prefHeight="341.0" prefWidth="359.0" spacing="20.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" spacing="5.0">
+                                             <children>
+                                                <Label fx:id="paymentsLabel" text="Payments" />
+                                                <TableView fx:id="loanerLoansPTable" prefWidth="359.0" />
+                                             </children>
+                                          </VBox>
+                                          <HBox alignment="CENTER" spacing="30.0">
+                                             <children>
+                                                <Button fx:id="payCycleButton" mnemonicParsing="false" onAction="#payCycleButtonAction" prefWidth="80.0" text="Pay Cycle" />
+                                                <Button fx:id="closeLoanButton" mnemonicParsing="false" onAction="#closeLoanButtonAction" prefWidth="80.0" text="Close Loan" />
+                                                <Button fx:id="payDebtButton" mnemonicParsing="false" onAction="#payDebtButtonAction" prefWidth="80.0" text="Pay Debt" />
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="controlsLabel" />
+                                          <HBox fx:id="debtPaymentHBox" alignment="BOTTOM_CENTER" spacing="30.0">
+                                             <children>
+                                                <VBox alignment="CENTER">
+                                                   <children>
+                                                      <Label text="Debt Payment Amount" />
+                                                      <TextField fx:id="debtAmountField" alignment="CENTER" maxHeight="25.0" maxWidth="121.0" prefHeight="25.0" prefWidth="121.0" />
+                                                   </children>
+                                                </VBox>
+                                                <Button fx:id="submitDebtButton" mnemonicParsing="false" onAction="#submitDebtButtonAction" text="Submit" />
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="paymentErrorLabel" />
+                                       </children>
+                                    </VBox>
+                                 </left>
+                                 <center>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" layoutX="15.0" prefHeight="607.0" prefWidth="263.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="notificationsLabel" text="Notifications" />
+                                                <TableView fx:id="notificationsTable">
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Trade">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" orientation="VERTICAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane>
+                                       <children>
+                                          <VBox alignment="CENTER" layoutX="204.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="buyInvestmentLabel" text="Buy Investment" />
+                                                <TableView fx:id="buyInvestmentTable">
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </TableView>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                                                   <children>
+                                                      <Button fx:id="searchInvestmentButton" mnemonicParsing="false" onAction="#searchInvestmentButtonAction" text="Search" />
+                                                      <Button fx:id="buyInvestmentButton" mnemonicParsing="false" onAction="#buyInvestmentButtonAction" text="Buy" />
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="buyErrorLabel" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane>
+                                       <children>
+                                          <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Label fx:id="sellInvestmentLabel" text="Sell Investment" />
+                                                <TableView fx:id="sellInvestmentTable">
+                                                   <VBox.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </VBox.margin>
+                                                </TableView>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                                                   <children>
+                                                      <Button fx:id="listInvestmentButton" mnemonicParsing="false" onAction="#listInvestmentButtonAction" text="List for sell" />
+                                                      <Button fx:id="unlistInvestmentButton" mnemonicParsing="false" onAction="#unlistInvestmentButtonAction" text="Unlist" />
+                                                   </children>
+                                                </HBox>
+                                                <Label fx:id="sellErrorLabel" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Charts">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="86.0" layoutY="65.0" prefHeight="597.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <LineChart fx:id="timeLineChart" title="Time Graph" BorderPane.alignment="CENTER">
+                                      <xAxis>
+                                        <CategoryAxis label="Yaz" side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                 </center>
+                                 <bottom>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                                 </bottom>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Chat">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane fx:id="chatPane" prefHeight="637.0" prefWidth="562.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </content>
+      </ScrollPane>
+   </items>
+</SplitPane>

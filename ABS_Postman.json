@@ -1,0 +1,638 @@
+{
+	"info": {
+		"_postman_id": "f8056872-1aad-49ad-a9e5-969039584e64",
+		"name": "Abs Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21464113"
+	},
+	"item": [
+		{
+			"name": "Login Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/login?username=Ofek",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Ofek"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transactions Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Notifications Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/notifications",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"notifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Loan Request (admin)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/loan?type=all_loans",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"loan"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "all_loans"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Loan Request (customer)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/loan?type=requested_loans",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"loan"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "requested_loans"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Lior/Downloads/ex3-small-1.xml"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/upload-file",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"upload-file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transaction (Withdraw)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "type=withdraw\r\namount=1000"
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transaction (Deposit)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "type=deposit\r\namount=1000"
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Info Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/info",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Login Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/login/admin?username=Din",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"login",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Din"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Accounts Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/accounts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close Loan Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "type=type_close\r\nloan_name=stock market introduction",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/payments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Payment Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "type=pay_debt_request\r\nloan_data=damn the banks\r\namount=500"
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/payments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forecast Request (admin)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/forecast?type=all_loans",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "all_loans"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Listed Investments Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/trade?type=listed_investments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"trade"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "listed_investments"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Investments For Sell Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/trade?type=investments_for_sell",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"trade"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "investments_for_sell"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy Investment Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "type=buy_investment\r\ninvestment_data=",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/trade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"trade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Investment Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "type=list_investment\r\ninvestment_data="
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/trade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"trade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unlist Investment Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "type=unlist_investment\r\ninvestment_data="
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/trade",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"trade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Current Yaz Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/time",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"time"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Increase Yaz Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/bank/time",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"time"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Loan Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/bank/loan",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"bank",
+						"loan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Chat Text",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/chat",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"chat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Chat Line",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "A Simple Chat Message"
+				},
+				"url": {
+					"raw": "localhost:8080/Abs/chat",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"chat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/Abs/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Abs",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

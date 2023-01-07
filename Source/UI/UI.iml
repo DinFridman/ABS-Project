@@ -7,7 +7,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Engine" />
+    <orderEntry type="library" name="AbsClient" level="project" />
+    <orderEntry type="library" name="AbsAdmin" level="project" />
     <orderEntry type="module" module-name="DTOs" />
+    <orderEntry type="module" module-name="Engine" />
+    <orderEntry type="library" name="jakarta.xml.bind.api" level="project" />
+    <orderEntry type="library" name="google.code.gson" level="project" />
+    <orderEntry type="library" name="wildfly.swarm.javafx.runtime" level="project" />
   </component>
 </module>

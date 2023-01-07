@@ -116,7 +116,6 @@ public class ChatController {
                 if(response.isSuccessful()) {
                     UsersAndVersion usersAndVersion = Constants.GSON_INSTANCE.fromJson(response.body().string(), UsersAndVersion.class);
                     int usersVersion = usersAndVersion.getUsersVersion();
-
                     if(this.usersVersion == usersVersion)
                         return;
 

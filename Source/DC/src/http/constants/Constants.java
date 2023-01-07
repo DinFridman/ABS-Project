@@ -1,6 +1,6 @@
 package http.constants;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 
 public class Constants {
     public static final String USERNAME = "username";

@@ -1,1 +1,0 @@
-java -jar AbsAdmin_jar\AbsAdmin.jar AdminMain

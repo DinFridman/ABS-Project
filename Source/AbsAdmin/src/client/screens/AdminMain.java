@@ -15,6 +15,7 @@ import screens.resources.BankScreenConsts;
 import java.io.IOException;
 import java.net.URL;
 
+
 public class AdminMain extends Application {
 
     @SuppressWarnings("unchecked")

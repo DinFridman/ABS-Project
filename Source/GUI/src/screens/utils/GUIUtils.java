@@ -1,8 +1,8 @@
 package screens.utils;
 
-import com.sun.javafx.scene.control.skin.TableViewSkin;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.Skin;
+import javafx.scene.control.skin.TableViewSkin;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import java.lang.reflect.InvocationTargetException;

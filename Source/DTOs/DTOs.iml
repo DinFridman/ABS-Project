@@ -7,5 +7,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:20-ea+11" level="project" />
+    <orderEntry type="library" name="jakarta.xml.bind.api" level="project" />
+    <orderEntry type="library" name="google.code.gson" level="project" />
+    <orderEntry type="library" name="wildfly.swarm.javafx.runtime" level="project" />
   </component>
 </module>

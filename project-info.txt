@@ -1,0 +1,4 @@
+The project evolved from a console application to a desktop client (Java FX) and finally to a client-server architecture.
+The backend involved dealing with a multithread environment and its implications (dealing with race conditions ; threads synchronization etc).
+The clients (2 types) involved working with HTTP client (OKHttp). Their code was developed using event-oriented approach.
+I used various Java collections throughout the development and worked with files (XML/JAXB ; JSON/GSON).
